@@ -1,0 +1,143 @@
+#app {
+    padding: 50px;
+    background-image: linear-gradient(#B40150, #51155A);
+    color: white;
+}
+#calculationArea .form-group {
+    max-width: 790px;
+    text-align: right;
+    font-size: 21px;
+    margin-bottom: 20px;
+}
+
+#calculationResults {
+    max-width: 790px;
+    display: grid;
+    justify-content: center;
+}
+#intro {
+    max-width: 853px;
+    margin: 0 auto;
+}
+
+#intro h1 {
+    font-size: 44px;
+}
+
+#intro p {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 29px;
+}
+
+select#savingsRate {
+    min-width: 230px;
+    height: 33px;
+    background: white;
+}
+
+#calculationArea input {
+    border-radius: 8px;
+    min-height: 26px;
+    padding-left: 7px;
+    font-size: 15px;
+}
+
+#calculationResults h1 {
+    text-align: center;
+    font-size: 43px;
+    margin-top: -23px;
+    color: #FFFFCC;
+}
+div#calculationResults H2 {
+    TEXT-ALIGN: CENTER;
+}
+
+div#calculationArea {
+    margin: 0 auto;
+    border: 2px solid #c13c7b;
+    padding: 33px;
+    border-radius: 23px;
+    max-width: 790px;
+}
+
+.Cal_inner_border {
+    border-bottom: 1px solid #B788AB;
+    margin-top: 45px;
+}
+body {
+    margin: 0 !important;
+}
+
+p#irNote {
+    font-size: 15px;
+    margin-top: 2px;
+}
+button#loanSumBtn {
+    height: 51px;
+    font-size: 15px;
+    padding-left: 31px;
+    padding-right: 31px;
+    border-radius: 36px;
+    font-weight: bold;
+    background: #F17D34;
+    border: none;
+}
+
+div#nhtBenifitDiv {
+    margin-right: 62px;
+}
+div#mgNote {
+    text-align: center;
+    font-size: 17px;
+    margin-top: 23px;
+}
+label#inNote {
+    font-size: 15px;
+    color: #FFFFCC;
+}
+
+@media only screen and (min-width: 500px) {
+    div#calculationArea {padding: 65px;}
+    button#loanSumBtn {font-size: 20px;}
+}
+
+input#propertyCost, input#depositBalance, input#loanAmount, input#loanAmount, input#nhtLoanAmount {
+    min-width: 218px;
+}
+input#repayYears {
+    max-width: 169px;
+    margin-right: 6px;
+}
+input#loanAmount {
+    min-width: 218px;
+    cursor: not-allowed;
+}
+
+input#nhtLoanIr {
+    min-width: 184px;
+    margin-right: 3px;
+}
+input#interestRate {
+    width: 157px;
+}
+button#loanSumBtn {
+    cursor: pointer;
+    outline: none;
+}
+
+
+@media only screen and (max-width: 706px) {
+    #calculationResults h1 {font-size: 21px;}
+    #calculationResults h2 {font-size: 20px;margin-left:5px;}
+}
+.mgInvoice div {
+    display: flex;
+    justify-content: space-between;
+}
+.mgInvoice p {
+    font-size: 20px;
+}
+.invVal {
+    border-bottom: 1px solid;
+}
