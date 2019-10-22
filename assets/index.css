@@ -1,7 +1,5 @@
 #app {
-    padding: 50px;
-    background-image: linear-gradient(#B40150, #51155A);
-    color: white;
+    padding: 30px;
 }
 #calculationArea .form-group {
     max-width: 790px;
@@ -18,6 +16,7 @@
 #intro {
     max-width: 853px;
     margin: 0 auto;
+    text-align: center;
 }
 
 #intro h1 {
@@ -54,6 +53,9 @@ div#calculationResults H2 {
 }
 
 div#calculationArea {
+    color: white;
+    background: darkred;
+    box-shadow: 3px 8px 12px black;
     margin: 0 auto;
     border: 2px solid #c13c7b;
     padding: 33px;
