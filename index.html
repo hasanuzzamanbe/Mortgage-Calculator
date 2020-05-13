@@ -1,101 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <link rel="stylesheet" href="./assets/index.css">
     <title>Calculator</title>
 </head>
+
 <body>
 
-<div id="app">
-    <div id="Cal_Main_container">
-        <div id="intro">
-            <h1>Mortgage Calculator</h1>
-            <p>Calculate your mortgage payments based on the cost of the property, loan term and interest rate.</p>
-        </div>
-        <div id="calculationArea">
-            <div class="form-group">
-                <label for="propertyCost">How much does the property cost?</label>
-                <input type="number" min="0" v-model="propertyCostVal" class="form-control" id="propertyCost"
-                       placeholder="$0.00">
+    <div id="app">
+        <div id="Cal_Main_container">
+            <div id="intro">
+                <h1>Mortgage Calculator</h1>
+                <p>Calculate your mortgage payments based on the cost of the property, loan term and interest rate.</p>
             </div>
-            <div class="form-group">
-                <label for="depositBalance">How much would you like to deposit?</label>
-                <input type="number" min="0" v-model="depositBalanceVal" class="form-control" id="depositBalance"
-                       placeholder="$0.00">
-            </div>
-            <div class="form-group">
-                <label for="repayYears">How long do you need to repay?</label>
-                <input type="number" min="0" v-model="repayYearsVal" class="form-control" id="repayYears"
-                       placeholder="0 Years">
-                <label id="inNote" for="repayYears">/years</label>
-            </div>
-            <div class="form-group">
-                <label for="interestRate">Interest rate</label>
-                <input type="number" min="0" v-model="interestRateVal" class="form-control" id="interestRate"
-                       placeholder="0.00%">
-                <label id="inNote" for="repayYears">/per year</label>
-                <p id="irNote">You can change this interest rate by<br> either typing a value or using<br> the up/down
-                    arrows.</p>
-            </div>
-            <div class="form-group">
-                <label for="loanAmount">Your loan amount</label>
-                <input disabled type="number" min="0" v-model="loanAmountVal" class="form-control" id="loanAmount"
-                       placeholder="$0.00">
-            </div>
-            <div class="form-group" id="nhtBenifitDiv">
-                <input type="checkbox" min="0" v-model="is_nht_applicable" class="form-control" id="nhtBenifit"
-                       placeholder="$0.00"> <label for="nhtBenifit">Apply NHT Benefit</label>
-            </div>
-            <div v-if="is_nht_applicable">
+            <div id="calculationArea">
                 <div class="form-group">
-                    <label for="nhtLoanAmount">NHT Loan</label>
-                    <input type="number" min="0" v-model="nhtLoanVal" class="form-control" id="nhtLoanAmount"
-                           placeholder="$0.00">
+                    <label for="propertyCost">How much does the property cost?</label>
+                    <input type="number" min="0" v-model="propertyCostVal" class="form-control" id="propertyCost"
+                        placeholder="$0.00">
                 </div>
                 <div class="form-group">
-                    <label for="nhtLoanIr">NHT Interest Rate</label>
-                    <input type="number" min="0" v-model="nhtLoanIrVal" class="form-control" id="nhtLoanIr"
-                           placeholder="$0.00"><label id="inNote" for="nhtLoanIr">/Year</label>
+                    <label for="depositBalance">How much would you like to deposit?</label>
+                    <input type="number" min="0" v-model="depositBalanceVal" class="form-control" id="depositBalance"
+                        placeholder="$0.00">
                 </div>
-            </div>
-            <div class="Cal_inner_border"></div>
-            <div id="calculationResults">
-                <div id="resultMonthly">
-                    <h2>Your Monthly Payment</h2>
-                    <br> <h1 v-if="isNaN(calculate_mortgage)">$0</h1>
-                    <h1 v-else>${{formatNumber(calculate_mortgage)}}</h1>
+                <div class="form-group">
+                    <label for="repayYears">How long do you need to repay?</label>
+                    <input type="number" min="0" v-model="repayYearsVal" class="form-control" id="repayYears"
+                        placeholder="0 Years">
+                    <label id="inNote" for="repayYears">/years</label>
+                </div>
+                <div class="form-group">
+                    <label for="interestRate">Interest rate</label>
+                    <input type="number" min="0" v-model="interestRateVal" class="form-control" id="interestRate"
+                        placeholder="0.00%">
+                    <label id="inNote" for="repayYears">/per year</label>
+                    <p id="irNote">You can change this interest rate by<br> either typing a value or using<br> the
+                        up/down
+                        arrows.</p>
+                </div>
+                <div class="form-group">
+                    <label for="loanAmount">Your loan amount</label>
+                    <input disabled type="number" min="0" v-model="loanAmountVal" class="form-control" id="loanAmount"
+                        placeholder="$0.00">
+                </div>
+                <div class="form-group" id="nhtBenifitDiv">
+                    <input type="checkbox" min="0" v-model="is_nht_applicable" class="form-control" id="nhtBenifit"
+                        placeholder="$0.00"> <label for="nhtBenifit">Apply NHT Benefit</label>
+                </div>
+                <div v-if="is_nht_applicable">
+                    <div class="form-group">
+                        <label for="nhtLoanAmount">NHT Loan</label>
+                        <input type="number" min="0" v-model="nhtLoanVal" class="form-control" id="nhtLoanAmount"
+                            placeholder="$0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="nhtLoanIr">NHT Interest Rate</label>
+                        <input type="number" min="0" v-model="nhtLoanIrVal" class="form-control" id="nhtLoanIr"
+                            placeholder="$0.00"><label id="inNote" for="nhtLoanIr">/Year</label>
+                    </div>
+                </div>
+                <div class="Cal_inner_border"></div>
+                <div id="calculationResults">
+                    <div id="resultMonthly">
+                        <h2>Your Monthly Payment</h2>
+                        <br>
+                        <h1 v-if="isNaN(calculate_mortgage)">$0</h1>
+                        <h1 v-else>${{formatNumber(calculate_mortgage)}}</h1>
+
+                    </div>
+                    <button @click="showSummary=!showSummary" id="loanSumBtn">GET YOUR LOAN SUMMARY</button>
 
                 </div>
-                <button @click="showSummary=!showSummary" id="loanSumBtn">GET YOUR LOAN SUMMARY</button>
+                <div v-if="showSummary" class="mgInvoice">
+                    <div class="invVal">
+                        <p> VMBS Loan Portion:</p>
+                        <p>${{formatNumber(loanAmountVal)}}</p>
+                    </div>
+                    <div v-if="is_nht_applicable" class="invVal">
+                        <p> NHT Loan Portion:</p>
+                        <p>${{formatNumber(nhtLoanVal)}}</p>
+                    </div>
+                    <div class="invVal">
+                        <p>Total Loan:</p>
+                        <p>${{formatNumber(Number(loanAmountVal)+ Number(nhtLoanVal))}}</p>
+                    </div>
+                    <div class="invVal">
+                        <p>Deposit:</p>
+                        <p>${{formatNumber(depositBalanceVal)}}</p>
+                    </div>
+                    <div class="invVal">
+                        <p>Estimated Closing Cost:</p>
+                        <p>${{formatNumber(closing_cost)}}</p>
+                    </div>
+                    <div>
+                        <p>Total Customer Input:</p>
+                        <p>${{formatNumber(Number(depositBalanceVal) + Number(closing_cost))}}</p>
+                    </div>
+                </div>
+                <div id="mgNote">Please note that other costs may be incurred during the mortgage process.<br>
+                    Conditions apply.
+                </div>
+            </div>
 
-            </div>
-            <div v-if="showSummary" class="mgInvoice">
-                <div class="invVal"><p> VMBS Loan Portion:</p>
-                    <p>${{formatNumber(loanAmountVal)}}</p></div>
-                <div v-if="is_nht_applicable" class="invVal"><p> NHT Loan Portion:</p>
-                    <p>${{formatNumber(nhtLoanVal)}}</p></div>
-                <div class="invVal"><p>Total Loan:</p>
-                    <p>${{formatNumber(Number(loanAmountVal)+ Number(nhtLoanVal))}}</p></div>
-                <div class="invVal"><p>Deposit:</p>
-                    <p>${{formatNumber(depositBalanceVal)}}</p></div>
-                <div class="invVal"><p>Estimated Closing Cost:</p>
-                    <p>${{formatNumber(closing_cost)}}</p></div>
-                <div><p>Total Customer Input:</p>
-                    <p>${{formatNumber(Number(depositBalanceVal) + Number(closing_cost))}}</p></div>
-            </div>
-            <div id="mgNote">Please note that other costs may be incurred during the mortgage process.<br>
-                Conditions apply.
+            <div>
+
             </div>
         </div>
 
-        <div>
-
-        </div>
+        <script src="./assets/index.js"></script>
     </div>
-
-    <script src="./assets/index.js"></script>
-</div>
 </body>
+
 </html>
