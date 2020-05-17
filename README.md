@@ -1,6 +1,6 @@
 # Mortgage-Calculator 
 
-## Check here: https://mortgage-calculator-vue.netlify.com/
+## Check here: https://mortgage-calculator-vue.netlify.app/
 
 
 A mortgage calculator with vue cdn.
